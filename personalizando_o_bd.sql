@@ -1,5 +1,5 @@
 -- Script para resolução do desafio proposto em "DIO - SQL Specialist - Personalizando o Banco de Dados com Índices e Procedures"
-
+USE ecommerce;
 
 -- Índice na coluna "departamento_iddepartamento" da tabela "empregado"
 -- Justificativa: A tabela "empregado" seria frequentemente consultada por "departamento_iddepartamento" para buscar todos os empregados de um determinado departamento.
@@ -18,7 +18,7 @@ CREATE INDEX idx_empregado_nome ON empregado(nome_empregado);
 -- Pergunta 1: Qual o departamento com maior número de pessoas?
 SELECT 
     d.nome_departamento, 
-    COUNT(e.idempregado) AS total_empleados
+    COUNT(e.idempregado) AS total_empregados
 FROM 
     departamento d
 JOIN 
@@ -26,7 +26,7 @@ JOIN
 GROUP BY 
     d.iddepartamento
 ORDER BY 
-    total_empleados DESC
+    total_empregados DESC
 LIMIT 1;
 
 
